@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Fullstack Jamstack Test</title>
+	<meta name="description" content="A simple HTML5 Jamstack/Fullstack test">
+	<meta name="author" content="Davide">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">		
+		<h1 class="display-3">Todo List</h1>		
+        <div id="todo">
+            <ul class="list-group">                
+            </ul>
+        </div>        
+    </div>    
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>      
+    <script>
+        async function loadItems(url) {
+            var response = await fetch(url) 
+            var payload = await response.json();         1   
+            var result = payload.value;
+            
+            var ul = $("#todo ul");            
+            result.forEach(item => {
+                var li = $(`<li class='list-group-item'>${item.title}</li>`);
+                ul.append(li);
+            });
+        }
+
+        $(async function() {
+            await loadItems("https://localhost:5001/api/todo?$first=5&$orderby=position desc");
+        });
+        
+	</script>
+</body>
+
+</html>

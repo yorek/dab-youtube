@@ -1,0 +1,27 @@
+POST https://localhost:5001/api/todo
+content-type: application/json
+
+{
+    "title": "from rest",
+    "isDone": false,
+    "visibility":"public",
+    "custom": {"first_name": "davide","lastName": "mauri"}
+}
+
+###
+
+POST https://localhost:5001/api/AddNewFromJSON
+content-type: application/json
+
+{
+    "payload": "{\"title\": \"from rest (sp)\",\"completed\": false,\"owner_id\":\"public\"}"    
+}
+
+###
+
+POST https://localhost:5001/api/AddNewFromJSON
+content-type: application/json
+
+{
+    "payload": {"title": "from rest (sp)","completed": false,"owner_id":"public"}
+}
