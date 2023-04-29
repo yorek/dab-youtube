@@ -1,3 +1,6 @@
+GET https://localhost:5001/api/todo?$orderby=created_on desc
+
+###
 POST https://localhost:5001/api/todo
 content-type: application/json
 
@@ -6,6 +9,16 @@ content-type: application/json
     "isDone": false,
     "visibility":"public",
     "custom": {"first_name": "davide","lastName": "mauri"}
+}
+
+###
+PUT https://localhost:5001/api/todo/tid/3a67cc45-2345-4e66-9fa2-549c37d56eab
+content-type: application/json
+
+{
+    "title": "from rest",
+    "isDone": false,
+    "visibility":"public"
 }
 
 ###

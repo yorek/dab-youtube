@@ -79,6 +79,10 @@ from
     generate_series(1, 10000, 1)
 go
 
+alter table dbo.todos
+add created_on_date as cast(created_on as date)
+go
+
 create or alter procedure dbo.AddNewFromJSON
 @payload nvarchar(max)
 as

@@ -1,11 +1,40 @@
+GET https://localhost:5001/api/todo
+
+###
+
 POST https://localhost:5001/api/todo
 content-type: application/json
 
 {
+    "tid": "BE02CC94-585A-48B4-1234-0004B94751E9",
     "title": "from rest",
     "isDone": false,
     "visibility":"public",
     "custom": {"first_name": "davide","lastName": "mauri"}
+}
+
+###
+
+PUT https://localhost:5001/api/todo/tid/BE02CC94-585A-48B4-1234-0004B94751E9
+content-type: application/json
+
+{    
+    "title": "from rest, updated",
+    "isDone": false,
+    "visibility":"public",
+    "custom": {"first_name": "davide","lastName": "mauri"},
+    "created_on": "2023-04-25T17:42:08.7956760"
+}
+
+###
+
+PATCH https://localhost:5001/api/todo/tid/BE02CC94-585A-48B4-1234-0004B94751E9
+content-type: application/json
+
+{        
+    "title": "from rest, patched",
+    "isDone": true,
+    "visibility": "public"        
 }
 
 ###
