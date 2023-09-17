@@ -36,7 +36,7 @@
         }
 
         $(async function() {
-            await loadItems("https://localhost:5001/api/todo?$first=5&$orderby=position desc");
+            await loadItems("/data-api/rest/todo?$first=5&$orderby=position desc");
         });
         
 	</script>

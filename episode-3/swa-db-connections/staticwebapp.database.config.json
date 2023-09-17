@@ -1,5 +1,5 @@
 {
-  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.6.13/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.6.14/dab.draft.schema.json",
   "data-source": {
     "database-type": "mssql",
     "options": {
@@ -10,7 +10,7 @@
   "runtime": {
     "rest": {
       "enabled": true,
-      "path": "/api"
+      "path": "/rest"
     },
     "graphql": {
       "allow-introspection": true,
@@ -18,17 +18,13 @@
       "path": "/graphql"
     },
     "host": {
-      "mode": "development",
+      "mode": "production",
       "cors": {
-        "origins": [ "http://127.0.0.1:5500" ],
+        "origins": [],
         "allow-credentials": false
       },
       "authentication": {
-        "provider": "AzureAD",
-        "jwt": {
-          "issuer": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/v2.0/",
-          "audience": "2a3a6673-d63e-4ded-9afe-44daea485e44"
-        }
+        "provider": "StaticWebApps"
       }
     }
   },
@@ -81,19 +77,6 @@
           ]
         }
       ]          
-    },
-    "AddNewFromJSON": {
-      "source": {
-        "type": "stored-procedure",
-        "object": "dbo.AddNewFromJSON",
-        "parameters": {
-          "payload": ""
-        }
-      },
-      "permissions": [{
-        "role": "anonymous",
-        "actions": ["execute"]
-      }]
-    }
+    }    
   }
 }
